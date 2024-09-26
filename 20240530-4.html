@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch4圖片</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/myall.css">
+    <style>
+        .demo01 {
+            width: 90%;
+            margin: 20px;
+            padding: 15px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 永遠與邊框最大 -->
+    <div class="demo01 bdr-02">
+        <img src="images/240313.jpg" width="100%" alt="">
+    </div>
+    <!-- 圖片不會無限放大 -->
+    <div class="demo01 bdr-02">
+        <img src="images/240313.jpg" width="img-fluid" alt="">
+    </div>
+    <!-- 邊角鈍化 護貝效果 -->
+    <div class="demo01 bdr-02">
+        <img src="https://fakeimg.pl/200x100/000" width="img-fluid" class="img-thumbnail" alt="">
+    </div>
+    <!-- 圖片置中1 -->
+    <div class="demo01 bdr-02">
+        <img src="images/240313.jpg" width="img-thumbnail d-block mx-auto" alt="">
+    </div>
+    <!-- 圖片置中2 -->
+    <div class="demo01 bdr-02">
+        <div class="text-center">
+            <img src="https://fakeimg.pl/200x100/000?text=center2">
+        </div>  
+    </div>
+    <!-- 圖片註腳 -->
+    <div class="demo01 bdr-02">
+        <figure class="figure">
+            <img src="images/240313.jpg" alt="" class="figure-img">
+            <figcaption class="figure-caption text-end">圖片註腳</figcaption>
+        </figure>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

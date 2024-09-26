@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/myall.css">
+    <style>
+        .table-mycolor{
+            background-color: rgb(34, 35, 36);
+            color: rgb(221, 228, 234);
+        }
+        /* 動態調整 橫幅 */
+        @media screen and (max-width: 768px) {
+            /* 當小於768時: */
+            .table-rwd thead{
+                /* 不展示thead */
+                display: none;
+            }
+            .table-rwd tbody tr{
+                display: block;
+                margin-top: 15px;
+                border: 2px solid var(--mycolor60);
+            }
+            .table-rwd tbody tr td{
+                display: block;
+                overflow: hidden;
+            }
+            .table-rwd tbody tr td::before{/* 伪元素 */
+                content:attr(data-th)" 🤪 ";
+                color: #331e34;/* 🤪的顏色 */
+                font-weight: bolder;/* 粗體 */
+                font-size: 22px;
+                display: block;
+                float: left;/* 🤪的位置 */
+                width: 30%;/* 🤪左邊的空缺 */
+                text-align: right;/* (文字小標題)靠右 */
+                padding-right: 15px;/* 靠右後往左回推 */
+            }
+            .table-rwd tbody tr td span.table-col{
+                float: left;
+                display: block;
+                width: 70%;
+
+            }
+        }
+    </style>
+<!--  -->
+</head>
+<body>
+    <div class="container">
+        <!-- table>thead>tr>th*5 直接打這樣生成表格-->
+        <table class="table table-striped table-hover table-bordered table-sm border-info table-rwd"><!-- strip交替異色 -->
+            <caption>產品列表</caption><!-- 小灰字標題 -->
+            <thead class="table-dark">
+                <tr><!-- 1tr為一行 -->
+                    <th>商品編號</th>
+                    <th>商品名稱</th>
+                    <th>商品價格</th>
+                    <th>商品數量</th>
+                    <th>商品備註</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-info">
+                    <td data-th="商品編號"><span class="table-col">001</span></td>
+                    <td data-th="商品名稱"><span class="table-col">台式滷味</span></td>
+                    <td data-th="商品價格"><span class="table-col">不要酸菜</span></td>
+                    <td data-th="商品數量"><span class="table-col">王子麵</span></td>
+                    <td data-th="商品備註"><span class="table-col">小辣小辣小辣小辣小辣小辣小辣小辣小辣小辣小辣小辣小辣小辣小辣小辣小辣小辣小辣小辣小辣小辣小辣</span></td>
+                </tr>
+                <tr class="table-success">
+                    <td>002</td>
+                    <td >美式滷味</td>
+                    <td>不要鳳梨</td>
+                    <td>通心麵</td>
+                    <td>莎莎醬</td>
+                </tr>
+                <tr class="table-success">
+                    <td>002</td>
+                    <td >美式滷味</td>
+                    <td>不要鳳梨</td>
+                    <td>通心麵</td>
+                    <td>沙拉醬</td>
+                </tr>
+                <tr class="table-success">
+                    <td>002</td>
+                    <td >美式滷味</td>
+                    <td>不要鳳梨</td>
+                    <td>通心麵</td>
+                    <td>沙拉醬</td>
+                </tr>
+                <tr class="table-success">
+                    <td>002</td>
+                    <td >美式滷味</td>
+                    <td>不要鳳梨</td>
+                    <td>通心麵</td>
+                    <td>沙拉醬</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
