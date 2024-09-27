@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>檔案上傳</title>
+    <!-- 引入 Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- 引入自訂樣式 -->
+    <link rel="stylesheet" href="css/myall.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 py-5">
+                <div class="card shadow-lg">
+                    <div class="card-body">
+                        <!-- 檔案上傳輸入框 -->
+                        <div class="mb-3">
+                            <label for="file01" class="form-label">檔案上傳</label>
+                            <input type="file" id="file01" name="file01" class="form-control">
+                        </div>
+                        <!-- 預覽圖放置處 -->
+                        <img src="" class="w-25 mt-2 d-none" id="prevImg" alt="">
+                    </div>
+                    <div class="card-footer text-center">
+                        <!-- 上傳按鈕 -->
+                        <button class="btn btn-primary" id="upload_btn">確認</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 引入 Bootstrap JS 和 jQuery -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // 上傳狀態旗標
+        var flag_upload = false;
+
+        $(function () {
+            // 檔案選擇變更事件
+            $("#file01").change(function () {
+                // 檢查檔案類型是否為 JPEG 或 PNG
+                if (file01.files[0].type == "image/png" || file01.files[0].type == "image/jpeg") {
+                    // 符合格式，顯示預覽圖
+                    $("#prevImg").removeClass("d-none");
+                    $("#prevImg").attr("src", URL.createObjectURL(file01.files[0]));
+                    flag_upload = true;
+                } else {
+                    // 不符格式，顯示警告並隱藏預覽圖
+                    alert("僅支援 JPEG 或 PNG 格式");
+                    $("#prevImg").addClass("d-none");
+                    flag_upload = false;
+                }
+            });
+
+            // 上傳按鈕點擊事件
+            $("#upload_btn").click(function () {
+                if (flag_upload) {
+                    // 檔案格式符合，開始上傳
+                    // 宣告表單格式
+                    var formData = new FormData();
+                    // 將檔案附加到表單資料中
+                    formData.append("file", file01.files[0]);
+                    // 發送 AJAX 請求到伺服器端 PHP 腳本
+                    $.ajax({
+                        type: "POST",
+                        url: "20240730-uploadfile.php",
+                        dataType: "json",
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: showdata,
+                        error: function () {
+                            console.log("error-20240730-uploadfile.php");
+                        }
+                    })
+                } else {
+                    // 檔案格式不符
+                    alert("檔案格式不符");
+                }
+            });
+        });
+
+        // 處理伺服器端回應的函數
+        function showdata(data) {
+            console.log(data);
+        }
+    </script>
+</body>
+
+</html>

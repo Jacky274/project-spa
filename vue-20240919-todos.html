@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODOS(代辦事項工具)</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/myall.css">
+    <style>
+        .completed {
+            text-decoration: line-through;
+            color: brown;
+        }
+    </style>
+</head>
+
+<style>
+    /* 已完成的任務加上刪除線，並更改為棕色 */
+    .completed {
+        text-decoration: line-through;
+        color: brown;
+    }
+</style>
+</head>
+
+<body>
+    <div class="container" id="app">
+        <section id="s02" class="bg-dark">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">
+                            <i class="fa-solid fa-guitar fa-2x text-danger me-2"></i>音樂之魂 - 您的專屬樂器天地</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">首頁</a>
+                                </li>
+
+                            </ul>
+                            <div>
+                                <span class="h3 text-info fw-600">會員: <span
+                                        class="h1 text-info fw-600">{{userData.Username}}</span></span>
+                                <button class="btn btn-primary" @click="logout">登出</button>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </section>
+        <div class="row">
+            <div class="col-12 pt-5">
+                <!-- 代辦事項輸入框 -->
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">代辦事項</span>
+                    <!-- 這裡綁定 newTodo 資料，按下 Enter 鍵時會執行 addTodo 方法 -->
+                    <input type="text" class="form-control" placeholder="輸入代辦事項" v-model="newTodo"
+                        @keyup.enter="addTodo">
+                    <!-- 新增按鈕，點擊後會執行 addTodo 方法 -->
+                    <button class="btn btn-outline-success" @click="addTodo">新增</button>
+                </div>
+
+                <!-- 代辦事項列表的主卡片 -->
+                <div class="card shadow-lg">
+                    <!-- 卡片標頭，包含篩選選單 -->
+                    <div class="card-header">
+                        <ul class="nav nav-pills">
+                            <!-- 全部任務的篩選按鈕 -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" @click="visibility = 'all'"
+                                    :class="{ 'active' : visibility == 'all'}">全部</a>
+                            </li>
+                            <!-- 進行中的任務篩選按鈕 -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" @click="visibility = 'active'"
+                                    :class="{ 'active' : visibility == 'active'}">進行中</a>
+                            </li>
+                            <!-- 已完成的任務篩選按鈕 -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" @click="visibility = 'completed'"
+                                    :class="{ 'active' : visibility == 'completed'}">已完成</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 卡片內容，代辦事項列表 -->
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <!-- v-for 迴圈遍歷 filterTodo 計算屬性來顯示篩選後的任務 -->
+                            <li class="list-group-item" v-for="item in filterTodo">
+                                <!-- 顯示模式下，點擊兩下會進入編輯模式 -->
+                                <div class="d-flex" v-if="item.id != cacheItem.id">
+                                    <div class="form-check">
+                                        <!-- 勾選框，勾選後會修改 completed 狀態 -->
+                                        <input type="checkbox" class="form-check-input" v-model="item.completed">
+                                        <!-- 已完成的任務加上刪除線樣式，雙擊進入編輯模式 -->
+                                        <label for="" class="form-check-label" :class="{ 'completed' : item.completed}"
+                                            @dblclick="editTodo(item)">{{ item.title }}</label>
+                                    </div>
+                                    <!-- 刪除按鈕，點擊後會移除該任務 -->
+                                    <button type="button" class="btn-close ms-auto" aria-label="Close"
+                                        @click="removeTodo(item)"></button>
+                                </div>
+                                <!-- 編輯模式下，輸入框顯示並可修改標題 -->
+                                <input type="text" class="form-control" v-if="item.id == cacheItem.id"
+                                    v-model="cacheTitle" @keyup.enter="doneTodo(item)" @keyup.esc="canacelTodo">
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 卡片底部，顯示未完成任務的計數，並提供清除所有任務的功能 -->
+                    <div class="card-footer d-flex justify-content-between">
+                        <!-- 顯示未完成任務的數量 -->
+                        <span>還有{{ countActive }}筆任務未完成</span>
+                        <!-- 清除所有任務按鈕，點擊後執行 destory 方法 -->
+                        <a href="#" @click="destory()">清除所有連結</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 載入 Bootstrap 和 Vue.js -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+
+    <script>
+        // Vue 應用程式
+        const App = {
+            data() {
+                return {
+                    newTodo: '',
+                    visibility: 'all', //all active completed
+                    cacheTitle: '',
+                    cacheItem: [],
+                    loginUser: [],
+                    userData: [], //儲存登入使用者的資訊
+                    // 初始代辦事項列表
+                    todos: [
+                        {
+                            id: '001',
+                            title: '寫Vue',
+                            completed: false
+                        },
+                        {
+                            id: '002',
+                            title: '寫Java',
+                            completed: false
+                        },
+                        {
+                            id: '003',
+                            title: '寫Larval',
+                            completed: false
+                        },
+                    ]
+                }
+            },
+            created() {
+                const vm = this;
+                //確認uid是否存在且合法
+                if (vm.getCookie("uid01") != "") {
+                    //將uid01傳遞至後端api確認是否合法
+                    var dataJSON = {};
+                    dataJSON["uid01"] = vm.getCookie("uid01");
+                    console.log(JSON.stringify(dataJSON));
+
+                    //傳遞至api驗證
+                    axios.post('member-login-check-uid-api.php', JSON.stringify(dataJSON))
+                        .then(function (response) {
+                            // handle success
+                            console.log(response);
+                            //判斷是否登入成功, 並做出相關反應
+                            if (response.data.state) {
+                                //登入成功
+                                if (response.data.data.State == "1") {
+                                    //帳號啟用
+                                    console.log("帳號啟用");
+                                    vm.userData = response.data.data;
+                                } else {
+                                    //帳號停權
+                                    console.log("帳號停權");
+                                    location.href = "20240730-spa.html";
+                                }
+                            } else {
+                                //登入失敗
+                                location.href = "20240730-spa.html";
+                            }
+
+                        })
+                        .catch(function (error) {
+                            // handle error
+                            console.log(error);
+                        })
+                        .finally(function () {
+                            // always executed
+                        });
+                } else {
+                    // alert("尚未登入, 請登入會員來使用附加功能!");
+                    location.href = "20240730-spa.html";
+                }
+            },
+            methods: {
+                addTodo() {
+                    console.log(Date.now());
+                    console.log(Math.floor(Date.now()));
+
+                    const timestamp = Math.floor(Date.now());
+                    const value = this.newTodo.trim();
+
+                    if (!value) {
+                        return;
+                    }
+                    this.todos.push({
+                        id: timestamp,
+                        title: value,
+                        completed: false
+                    });
+                    this.newTodo = '';
+                },
+                removeTodo(todo) {
+                    const vm = this;
+                    newIndex = vm.todos.findIndex((item, index) => {
+                        return todo.id == item.id
+                    });
+                    vm.todos.splice(newIndex, 1);
+                },
+                editTodo(item) {
+                    const vm = this;
+                    vm.cacheItem = item;
+                    vm.cacheTitle = item.title;
+                },
+                doneTodo(item) {
+                    const vm = this;
+                    item.title = vm.cacheTitle;
+                    vm.cacheItem = [];
+                    vm.cacheTitle = '';
+                },
+                canacelTodo() {
+                    const vm = this;
+                    vm.cacheItem = [];
+                    vm.cacheTitle = '';
+                },
+                destory() {
+                    if (confirm("確認清除?")) {
+                        this.todos = [];
+                    }
+                },
+                logout() {
+                    const vm = this;
+                    vm.setCookie("uid01", "", 7);
+                    location.href = "20240730-spa.html";
+                },
+                setCookie(cname, cvalue, exdays) {
+                    const d = new Date();
+                    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                    let expires = "expires=" + d.toUTCString();
+                    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+                },
+                getCookie(cname) {
+                    let name = cname + "=";
+                    let decodedCookie = decodeURIComponent(document.cookie);
+                    let ca = decodedCookie.split(';');
+                    for (let i = 0; i < ca.length; i++) {
+                        let c = ca[i];
+                        while (c.charAt(0) == ' ') {
+                            c = c.substring(1);
+                        }
+                        if (c.indexOf(name) == 0) {
+                            return c.substring(name.length, c.length);
+                        }
+                    }
+                    return "";
+                }
+            },
+            computed: {
+                filterTodo() {
+                    const vm = this;
+                    if (vm.visibility == 'all') {
+                        return vm.todos;
+                    } else if (vm.visibility == 'active') {
+                        //挑選 item.completed 為false的事項 並回傳   
+                        const activeTodo = [];
+                        vm.todos.forEach((item, key) => {
+                            if (!item.completed) {
+                                activeTodo.push(item);
+                            }
+                        });
+                        return activeTodo;
+                    } else if (vm.visibility == 'completed') {
+                        //挑選 item.completed 為true的事項 並回傳   
+                        const completedTodo = [];
+                        vm.todos.forEach((item, key) => {
+                            if (item.completed) {
+                                completedTodo.push(item);
+                            }
+                        });
+                        return completedTodo;
+                    }
+                },
+                countActive() {
+                    let count = 0;
+                    const vm = this;
+                    vm.todos.forEach((item, key) => {
+                        if (!item.completed) {
+                            count++;
+                        }
+                    });
+                    return count;
+                }
+            }
+        }
+
+        Vue.createApp(App).mount('#app');
+    </script>

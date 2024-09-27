@@ -6,10 +6,11 @@
         "Ingredients": [
             "奶油",
             "芝士",
+            "抹茶",
             "抹茶"
         ],
         "Description": "食材天然",
-        "ImagePath": "images/"
+        "ImagePath": "../images/cake.jpg"
     },
     {
         "ID": 2,
@@ -21,7 +22,7 @@
             "雞蛋"
         ],
         "Description": "美味可口",
-        "ImagePath": "https://example.com/images/bakery_product_2.jpg"
+        "ImagePath": "../images/cake001.jpg"
     },
     {
         "ID": 3,
@@ -34,7 +35,7 @@
             "糖"
         ],
         "Description": "香氣四溢",
-        "ImagePath": "https://example.com/images/bakery_product_3.jpg"
+        "ImagePath": "../images/cake002.jpg"
     },
     {
         "ID": 4,
@@ -45,7 +46,7 @@
             "肉桂"
         ],
         "Description": "香氣四溢",
-        "ImagePath": "https://example.com/images/bakery_product_4.jpg"
+        "ImagePath": "../images/cake003.jpg"
     },
     {
         "ID": 5,
@@ -56,7 +57,7 @@
             "藍莓"
         ],
         "Description": "新鮮出爐",
-        "ImagePath": "https://example.com/images/bakery_product_5.jpg"
+        "ImagePath": "../images/cake04.jpg"
     },
     {
         "ID": 6,
@@ -67,7 +68,7 @@
             "雞蛋"
         ],
         "Description": "健康美味",
-        "ImagePath": "https://example.com/images/bakery_product_6.jpg"
+        "ImagePath": "../images/cake05.jpg"
     },
     {
         "ID": 7,
@@ -80,7 +81,7 @@
             "香蕉"
         ],
         "Description": "香甜鬆軟",
-        "ImagePath": "https://example.com/images/bakery_product_7.jpg"
+        "ImagePath": "../images/cake06.jpg"
     },
     {
         "ID": 8,
@@ -91,7 +92,7 @@
             "巧克力"
         ],
         "Description": "美味可口",
-        "ImagePath": "https://example.com/images/bakery_product_8.jpg"
+        "ImagePath": "../images/cake07.jpg"
     },
     {
         "ID": 9,
@@ -102,7 +103,7 @@
             "草莓"
         ],
         "Description": "食材天然",
-        "ImagePath": "https://example.com/images/bakery_product_9.jpg"
+        "ImagePath": "../images/cake08.jpg"
     },
     {
         "ID": 10,
@@ -114,7 +115,7 @@
             "奶油"
         ],
         "Description": "健康美味",
-        "ImagePath": "https://example.com/images/bakery_product_10.jpg"
+        "ImagePath": "../images/cake.jpg"
     },
     {
         "ID": 11,
@@ -127,7 +128,7 @@
             "椰子"
         ],
         "Description": "口感絕佳",
-        "ImagePath": "https://example.com/images/bakery_product_11.jpg"
+        "ImagePath": "../images/cake.jpg"
     },
     {
         "ID": 12,
@@ -138,7 +139,7 @@
             "藍莓"
         ],
         "Description": "健康美味",
-        "ImagePath": "https://example.com/images/bakery_product_12.jpg"
+        "ImagePath": "../images/cake06.jpg"
     },
     {
         "ID": 13,
@@ -152,7 +153,7 @@
             "肉桂"
         ],
         "Description": "香甜鬆軟",
-        "ImagePath": "https://example.com/images/bakery_product_13.jpg"
+        "ImagePath": "../images/cake.jpg"
     },
     {
         "ID": 14,
@@ -164,7 +165,7 @@
             "麵粉"
         ],
         "Description": "香甜鬆軟",
-        "ImagePath": "https://example.com/images/bakery_product_14.jpg"
+        "ImagePath": "../images/cake002.jpg"
     },
     {
         "ID": 15,
@@ -175,7 +176,7 @@
             "咖啡"
         ],
         "Description": "香氣四溢",
-        "ImagePath": "https://example.com/images/bakery_product_15.jpg"
+        "ImagePath": "../images/sweet.jpg"
     },
     {
         "ID": 16,
@@ -186,7 +187,7 @@
             "椰子"
         ],
         "Description": "獨特風味",
-        "ImagePath": "https://example.com/images/bakery_product_16.jpg"
+        "ImagePath": "../images/sweetcake01.jpg"
     },
     {
         "ID": 17,
@@ -198,7 +199,7 @@
             "奶酪"
         ],
         "Description": "精緻甜點",
-        "ImagePath": "https://example.com/images/bakery_product_17.jpg"
+        "ImagePath": "../images/sweetcake02.jpg"
     },
     {
         "ID": 18,
@@ -209,7 +210,7 @@
             "奶油"
         ],
         "Description": "香氣四溢",
-        "ImagePath": "https://example.com/images/bakery_product_18.jpg"
+        "ImagePath": "../images/sweetcake03.jpg"
     },
     {
         "ID": 19,
@@ -220,7 +221,7 @@
             "紅豆"
         ],
         "Description": "香氣四溢",
-        "ImagePath": "https://example.com/images/bakery_product_19.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 20,
@@ -232,7 +233,7 @@
             "芝士"
         ],
         "Description": "健康美味",
-        "ImagePath": "https://example.com/images/bakery_product_20.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 21,
@@ -244,7 +245,7 @@
             "藍莓"
         ],
         "Description": "食材天然",
-        "ImagePath": "https://example.com/images/bakery_product_21.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 22,
@@ -257,7 +258,7 @@
             "檸檬"
         ],
         "Description": "獨特風味",
-        "ImagePath": "https://example.com/images/bakery_product_22.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 23,
@@ -269,7 +270,7 @@
             "糖"
         ],
         "Description": "香氣四溢",
-        "ImagePath": "https://example.com/images/bakery_product_23.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 24,
@@ -282,7 +283,7 @@
             "肉桂"
         ],
         "Description": "健康美味",
-        "ImagePath": "https://example.com/images/bakery_product_24.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 25,
@@ -294,7 +295,7 @@
             "麵粉"
         ],
         "Description": "香甜鬆軟",
-        "ImagePath": "https://example.com/images/bakery_product_25.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 26,
@@ -305,7 +306,7 @@
             "咖啡"
         ],
         "Description": "食材天然",
-        "ImagePath": "https://example.com/images/bakery_product_26.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 27,
@@ -315,7 +316,7 @@
             "奶油乳酪"
         ],
         "Description": "食材天然",
-        "ImagePath": "https://example.com/images/bakery_product_27.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 28,
@@ -326,7 +327,7 @@
             "巧克力"
         ],
         "Description": "精緻甜點",
-        "ImagePath": "https://example.com/images/bakery_product_28.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 29,
@@ -338,7 +339,7 @@
             "檸檬"
         ],
         "Description": "香氣四溢",
-        "ImagePath": "https://example.com/images/bakery_product_29.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 30,
@@ -351,7 +352,7 @@
             "藍莓"
         ],
         "Description": "健康美味",
-        "ImagePath": "https://example.com/images/bakery_product_30.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 31,
@@ -364,7 +365,7 @@
             "肉桂"
         ],
         "Description": "口感絕佳",
-        "ImagePath": "https://example.com/images/bakery_product_31.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 32,
@@ -375,7 +376,7 @@
             "草莓"
         ],
         "Description": "口感絕佳",
-        "ImagePath": "https://example.com/images/bakery_product_32.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 33,
@@ -386,7 +387,7 @@
             "檸檬"
         ],
         "Description": "食材天然",
-        "ImagePath": "https://example.com/images/bakery_product_33.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 34,
@@ -399,7 +400,7 @@
             "香蕉"
         ],
         "Description": "美味可口",
-        "ImagePath": "https://example.com/images/bakery_product_34.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 35,
@@ -409,7 +410,7 @@
             "蜂蜜"
         ],
         "Description": "香甜鬆軟",
-        "ImagePath": "https://example.com/images/bakery_product_35.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 36,
@@ -423,7 +424,7 @@
             "紅豆"
         ],
         "Description": "口感絕佳",
-        "ImagePath": "https://example.com/images/bakery_product_36.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 37,
@@ -433,7 +434,7 @@
             "抹茶"
         ],
         "Description": "精緻甜點",
-        "ImagePath": "https://example.com/images/bakery_product_37.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 38,
@@ -447,7 +448,7 @@
             "奶油乳酪"
         ],
         "Description": "香甜鬆軟",
-        "ImagePath": "https://example.com/images/bakery_product_38.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 39,
@@ -459,7 +460,7 @@
             "糖"
         ],
         "Description": "精緻甜點",
-        "ImagePath": "https://example.com/images/bakery_product_39.jpg"
+        "ImagePath": ""
     },
     {
         "ID": 40,
@@ -470,6 +471,6 @@
             "核桃"
         ],
         "Description": "獨特風味",
-        "ImagePath": "https://example.com/images/bakery_product_40.jpg"
+        "ImagePath": ""
     }
 ]

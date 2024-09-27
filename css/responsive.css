@@ -14,41 +14,6 @@
 }
 
 /* Responsive */
-
-@media only screen and (max-width: 2000px) {
-	
-	.wrapper {
-		width: 89%;
-	}
-	
-	#main-menu {
-		width: 80%;
-	}
-	
-	.flex-caption p {
-		font-size: 24px;
-	}
-	
-	#footer .flickr_badge_wrapper .flickr_badge_image:nth-child(3n+1) {
-		margin: 0 8px 3px 0;
-	}
-	
-	.widget .latest-posts-list li .lpl-content {
-	    width: 55%;
-	}
-	
-	.product-single-content li.col2 {
-		width: 100%;
-		float: none;
-	}
-	
-	.product-single-content {
-		padding: 0 0 30px 0;
-	}
-	
-}
-
-
 @media only screen and (max-width: 1100px) {
 	
 	.wrapper {
